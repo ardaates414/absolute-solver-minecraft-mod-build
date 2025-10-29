@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "absolute-solver",
+	"version": "${version}",
+	"name": "Absolute Solver",
+	"description": "A mod that adds Absolute Solver abilities from Murder Drones - Translate, Scale, Rotate, Edit, and Null.",
+	"authors": [
+		"You"
+	],
+	"contact": {
+		"sources": "https://github.com/YourUsername/absolute-solver"
+	},
+	"license": "MIT",
+	"icon": "assets/absolute-solver/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.absolutesolver.AbsoluteSolverMod"
+		],
+		"client": [
+			"com.absolutesolver.client.AbsoluteSolverClient"
+		]
+	},
+	"mixins": [
+		"absolute-solver.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"fabric-api": "*",
+		"minecraft": "~1.21.5",
+		"java": ">=21"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
+

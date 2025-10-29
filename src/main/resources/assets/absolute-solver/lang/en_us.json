@@ -1,0 +1,9 @@
+{
+	"item.absolute-solver.translate": "Absolute Solver - Translate",
+	"item.absolute-solver.scale": "Absolute Solver - Scale",
+	"item.absolute-solver.rotate": "Absolute Solver - Rotate",
+	"item.absolute-solver.edit": "Absolute Solver - Edit",
+	"item.absolute-solver.null": "Absolute Solver - Null",
+	"entity.absolute-solver.null_entity": "Null"
+}
+
