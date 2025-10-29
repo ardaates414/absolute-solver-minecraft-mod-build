@@ -1,0 +1,47 @@
+name: Build Absolute Solver Mod
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Build with Gradle
+        shell: bash
+        run: |
+          ./gradlew --version
+          ./gradlew build --stacktrace
+
+      - name: Upload built jars
+        uses: actions/upload-artifact@v4
+        with:
+          name: absolute-solver-artifacts
+          path: |
+            build/libs/*.jar
+            **/build/libs/*.jar
+
+
